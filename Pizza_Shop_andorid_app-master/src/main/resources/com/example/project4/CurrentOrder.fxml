@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.CurrentOrderController">
+   <children>
+      <Label layoutX="195.0" layoutY="14.0" text="Your Pizza Order" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="56.0" text="Order Number: ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="orderNum" editable="false" layoutX="142.0" layoutY="56.0" prefHeight="25.0" prefWidth="41.0" />
+      <ListView fx:id= "pizzasInOrder" layoutX="30.0" layoutY="89.0" prefHeight="185.0" prefWidth="539.0" />
+      <Label layoutX="209.0" layoutY="60.0" text="To modify order, select a pizza below and click remove" />
+      <Label layoutX="34.0" layoutY="291.0" text="Subtotal:   $" />
+      <Label layoutX="34.0" layoutY="328.0" text="Sales Tax:  $" />
+      <Label layoutX="25.0" layoutY="367.0" text="Order Total: $" />
+      <TextField fx:id="subtotal" editable="false" layoutX="109.0" layoutY="287.0" prefHeight="25.0" prefWidth="134.0" />
+      <TextField fx:id="orderTotal" editable="false" layoutX="109.0" layoutY="363.0" prefHeight="0.0" prefWidth="134.0" />
+      <TextField fx:id="salesTax" editable="false" layoutX="109.0" layoutY="324.0" prefHeight="25.0" prefWidth="134.0" />
+      <Button fx:id = "placeOrder" onAction="#handlePlaceOrder" layoutX="284.0" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="Place Order">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id= "remove" onAction="#handleRemove" layoutX="422.0" layoutY="319.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="Remove Pizza">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

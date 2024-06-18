@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="434.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.SpecialtyPizzasController">
+   <children>
+      <GridPane layoutY="1.0" prefHeight="434.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="114.5" minHeight="10.0" prefHeight="114.5" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="197.0" minHeight="10.0" prefHeight="125.5" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="113.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="102.5" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="pizzaPic" fitHeight="100.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" />
+             <ChoiceBox fx:id="pizzaType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="Deluxe" />
+                         <String fx:value="Supreme" />
+                         <String fx:value="Seafood" />
+                         <String fx:value="Meatzza" />
+                         <String fx:value="Pepperoni" />
+                     </FXCollections>
+                 </items>
+             </ChoiceBox>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <RadioButton fx:id="small" mnemonicParsing="false" text="Small" GridPane.halignment="CENTER">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="size" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="medium" mnemonicParsing="false" text="Medium" toggleGroup="$size" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="large" mnemonicParsing="false" text="Large" toggleGroup="$size" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <CheckBox fx:id="extraSauce" onAction="#handleExtras" mnemonicParsing="false" text="extra sauce" GridPane.halignment="CENTER" />
+                  <CheckBox fx:id="extraCheese" onAction="#handleExtras" mnemonicParsing="false" text="extra cheese" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
+            <GridPane prefHeight="64.0" prefWidth="300.0" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="59.20001220703125" minHeight="0.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Sauce" GridPane.halignment="CENTER" />
+                  <Label text="Total" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <TextArea fx:id="sauceText" prefHeight="22.0" prefWidth="86.0" GridPane.columnIndex="1" />
+                  <TextArea fx:id="totalText" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <Button fx:id="submitOrder" alignment="CENTER" mnemonicParsing="false" onAction="#handleAddToOrder" text="Add to order" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ListView fx:id="toppingsListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                  <Label text="Toppings" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
